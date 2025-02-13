@@ -37,4 +37,4 @@ jobs:
       with:
         files: ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
