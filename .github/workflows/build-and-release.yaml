@@ -19,22 +19,39 @@ jobs:
     - name: Run build script
       run: ./build.sh
 
-    - name: Check if output file exists
-      id: check_file
+    - name: Check if output files exist
+      id: check_files
       run: |
-        if [ -f "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx" ]; then
-          echo "File exists"
-          echo "file_exists=true" >> $GITHUB_OUTPUT
+        FILES=(
+          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx"
+          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin"
+          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin"
+        )
+        ALL_EXIST=true
+        for FILE in "${FILES[@]}"; do
+          if [ -f "$FILE" ]; then
+            echo "$FILE exists"
+          else
+            echo "$FILE does not exist"
+            ALL_EXIST=false
+          fi
+        done
+        if [ "$ALL_EXIST" = "true" ]; then
+          echo "All files exist"
+          echo "files_exist=true" >> $GITHUB_OUTPUT
         else
-          echo "File does not exist"
-          echo "file_exists=false" >> $GITHUB_OUTPUT
+          echo "One or more files missing"
+          echo "files_exist=false" >> $GITHUB_OUTPUT
           exit 1
         fi
 
-    - name: Create Release and Upload Asset
-      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && steps.check_file.outputs.file_exists == 'true'
+    - name: Create Release and Upload Assets
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') && steps.check_files.outputs.files_exist == 'true'
       uses: softprops/action-gh-release@v2
       with:
-        files: ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx
+        files: |
+          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx
+          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin
+          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
