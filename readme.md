@@ -8,4 +8,4 @@ TP-Link Archer VR1200v (v2).
 wifi, or USB yet. You can only communicate with it using UART. Drivers
 for these devices have not yet been written.
 
-The actual support for these device is found in https://github.com/cjdelisle/openwrt/tree/new-platform-en75
+The code that's being built here can be found in https://github.com/cjdelisle/openwrt/tree/new-platform-econet-jun4

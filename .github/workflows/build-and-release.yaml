@@ -23,9 +23,8 @@ jobs:
       id: check_files
       run: |
         FILES=(
-          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx"
-          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin"
-          "./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin"
+          "./openwrt/bin/targets/econet/en751221/openwrt-econet-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx"
+          "./openwrt/bin/targets/econet/en751221/openwrt-econet-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin"
         )
         ALL_EXIST=true
         for FILE in "${FILES[@]}"; do
@@ -50,8 +49,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx
-          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin
-          ./openwrt/bin/targets/en75/en751221/openwrt-en75-en751221-en751221_generic-initramfs-kernel.bin
+          ./openwrt/bin/targets/econet/en751221/openwrt-econet-en751221-smartfiber_xp8421-b-squashfs-tclinux.trx
+          ./openwrt/bin/targets/econet/en751221/openwrt-econet-en751221-tplink_archer-vr1200v-v2-squashfs-sysupgrade.bin
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
