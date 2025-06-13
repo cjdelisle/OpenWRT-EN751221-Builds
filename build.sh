@@ -21,5 +21,3 @@ CONFIG_TARGET_ROOTFS_INITRAMFS=y
 make defconfig
 
 make "-j$(nproc)"
-
-# CONFIG_TARGET_ALL_PROFILES=y
