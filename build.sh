@@ -1,8 +1,8 @@
 #!/bin/sh
 
-git clone https://github.com/cjdelisle/openwrt.git
+git clone https://github.com/openwrt/openwrt.git
 cd openwrt || exit 1
-git checkout new-platform-econet-jun4
+git checkout main
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
