@@ -4,8 +4,8 @@ This repository contains the github actions to build and release
 OpenWRT for EN751221 devices including the SmartFiber XP8421-B and
 TP-Link Archer VR1200v (v2).
 
-**WARNING:** This OS is *minimal*, there is no support for Ethernet,
-wifi, or USB yet. You can only communicate with it using UART. Drivers
-for these devices have not yet been written.
+**WARNING:** This OS is *minimal*, there is support for USB but not
+Ethernet or wifi yet. You can only communicate with it using UART.
+Drivers for these devices have not yet been written.
 
-LAST BUILD: SEPT 12 2025
+LAST BUILD: SEPT 19 2025

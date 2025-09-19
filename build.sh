@@ -16,6 +16,12 @@ CONFIG_TARGET_DEVICE_econet_en751221_DEVICE_tplink_archer-vr1200v-v2=y
 CONFIG_PACKAGE_nand-utils=y
 CONFIG_TARGET_INITRAMFS_COMPRESSION_NONE=y
 CONFIG_TARGET_ROOTFS_INITRAMFS=y
+CONFIG_PACKAGE_kmod-usb-storage=y
+CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+CONFIG_PACKAGE_kmod-fs-vfat=y
+CONFIG_PACKAGE_kmod-fs-ext4=y
+CONFIG_PACKAGE_kmod-scsi-core=y
+CONFIG_PACKAGE_r8152-firmware=y
 ' > .config
 
 make defconfig
