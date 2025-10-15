@@ -8,4 +8,4 @@ TP-Link Archer VR1200v (v2).
 Ethernet or wifi yet. You can only communicate with it using UART.
 Drivers for these devices have not yet been written.
 
-LAST BUILD: OCT 9 2025
+LAST BUILD: OCT 15 2025
